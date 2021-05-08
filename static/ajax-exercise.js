@@ -7,8 +7,10 @@ function showFortune(evt) {
     // TODO: get the fortune and show it in the #fortune-text div
 
     $.get('/fortune', (response) => {
-        $('#fortune-text').text(response);
-    });
+    //     $('#fortune-text').text(response);
+    // })
+        document.getElementById("fortune-text").innerHTML = response
+    })
 }
 
 document.querySelector('#get-fortune-button').addEventListener('click', showFortune);
@@ -61,7 +63,7 @@ function orderMelons(evt) {
             }
         },
         method: "POST",
-    });
+    })
 }
 
 document.getElementById('order-form').addEventListener('submit', orderMelons);
