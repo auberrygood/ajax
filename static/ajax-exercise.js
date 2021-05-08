@@ -69,3 +69,20 @@ document.getElementById('order-form').addEventListener('submit', orderMelons);
 // $("#order-form").on('submit', orderMelons);
 
 
+
+// PART FURTHER STUDY: SHOW DOG IMAGE
+
+function showDogImage(evt) {
+    evt.preventDefault();
+    fetch ("https://dog.ceo/api/breeds/image/random")
+        .then ( (response) => response.json() ) //what is the .json() doing? is it the jscript version of python's jsonify?
+        .then ( (result) => { //what is result? is it interchangable with response? or is it the result of the previous .then?
+            const { message : imageUrl } = result;
+            const dogImage = document.createElement("img");
+            dogImage.setAttribute("src", imageUrl);
+            document.querySelector("#dog-image").append(dogImage);
+        })
+}
+
+
+document.querySelector('#get-dog-image-button').addEventListener('click', showDogImage);
