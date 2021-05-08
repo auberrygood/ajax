@@ -47,7 +47,7 @@ function orderMelons(evt) {
         qty: $("#qty-field").val()
     };
 
-    $ajax({
+    $.ajax({
         url:"/order-melons.json",
         data: JSON.stringify(formInputs),
         contentType: "application/json",
